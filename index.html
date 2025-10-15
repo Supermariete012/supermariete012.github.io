@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoConsejos | Aprende a invertir en criptomonedas</title>
+    <meta name="description" content="Consejos prácticos, estrategias de inversión y educación financiera para principiantes en el mundo de las criptomonedas y las inversiones personales.">
+    <meta name="keywords" content="criptomonedas, inversiones, educación financiera, Bitcoin, Ethereum, consejos de inversión, finanzas personales">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="URL_DEL_SITIO">
+    <meta property="og:title" content="CryptoConsejos | Aprende a invertir en criptomonedas">
+    <meta property="og:description" content="Consejos prácticos, estrategias de inversión y educación financiera para principiantes en el mundo de las criptomonedas y las inversiones personales.">
+    <meta property="og:image" content="URL_IMAGEN_PREVIEW">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="URL_DEL_SITIO">
+    <meta property="twitter:title" content="CryptoConsejos | Aprende a invertir en criptomonedas">
+    <meta property="twitter:description" content="Consejos prácticos, estrategias de inversión y educación financiera para principiantes en el mundo de las criptomonedas y las inversiones personales.">
+    <meta property="twitter:image" content="URL_IMAGEN_PREVIEW">
+
+    <!-- Favicon (se puede generar uno simple o usar una URL de un servicio como Favicon.io) -->
+    <!-- Por simplicidad y para tener un único archivo HTML, usamos un SVG data URI para el favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💰</text></svg>" />
+
+    <!-- Google Fonts: Poppins (importado en CSS) -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        /* Variables CSS - Paleta de colores moderna para cripto-finanzas */
+        :root {
+            --primary-color: #04D9B2; /* Verde esmeralda (similar a algunos logos de cripto) */
+            --secondary-color: #FFD700; /* Dorado para acentos */
+            --dark-bg: #1A1A2E; /* Fondo azul oscuro muy profundo */
+            --mid-dark-bg: #1F2840; /* Un azul oscuro ligeramente menos intenso para contraste */
+            --text-color: #E0E0E0; /* Texto claro para mejor legibilidad en fondos oscuros */
+            --light-text-color: #FFFFFF; /* Blanco puro para elementos clave */
+            --border-color: #3C4257; /* Un gris azulado oscuro para bordes sutiles */
+            --danger-color: #DC3545; /* Rojo para advertencias o errores */
+        }
+
+        /* Reset y estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7; /* Mayor interlineado para legibilidad */
+            color: var(--text-color);
+            background: var(--dark-bg);
+            min-height: 100vh; /* Asegura que el body ocupe al menos todo el viewport */
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 25px; /* Ligeramente más padding en los laterales */
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--secondary-color); /* Hover en dorado */
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--light-text-color); /* Encabezados en blanco para alto contraste */
+            margin-bottom: 20px; /* Mayor espacio inferior */
+            line-height: 1.2;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--dark-bg); /* Texto oscuro en botón brillante */
+            padding: 12px 25px; /* Un poco más de padding */
+            border-radius: 8px; /* Bordes más redondeados */
+            text-transform: uppercase;
+            font-weight: 700; /* Más negrita */
+            letter-spacing: 0.5px; /* Espaciado entre letras */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(4, 217, 178, 0.3); /* Sombra para el botón */
+        }
+
+        .btn:hover {
+            background: var(--secondary-color);
+            color: var(--dark-bg);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4); /* Sombra dorada al hover */
+        }
+
+        /* Header */
+        .header {
+            background: var(--dark-bg);
+            color: var(--light-text-color);
+            padding: 20px 0; /* Más padding */
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Sombra más pronunciada */
+            border-bottom: 1px solid var(--border-color); /* Borde inferior sutil */
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo a {
+            color: var(--primary-color); /* Logo en color de acento */
+            font-size: 32px; /* Tamaño de logo ligeramente mayor */
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .nav-list {
+            display: flex;
+        }
+
+        .nav-list li {
+            margin-left: 35px; /* Mayor espacio entre elementos de navegación */
+        }
+
+        .nav-list a {
+            color: var(--text-color); /* Texto de navegación en color claro */
+            font-weight: 500; /* Peso de fuente medio */
+            font-size: 19px; /* Tamaño de fuente ligeramente mayor */
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .nav-list a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0%;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-list a:hover::after,
+        .nav-list a.active::after {
+            width: 100%;
+        }
+
+        .nav-list a:hover {
+            color: var(--light-text-color);
+        }
+
+        .hamburger-menu {
+            display: none; /* Oculto por defecto en desktop */
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            position: relative;
+            z-index: 1001;
+        }
+
+        .hamburger-menu span {
+            display: block;
+            width: 28px; /* Mayor tamaño para el icono de hamburguesa */
+            height: 3px;
+            background: var(--primary-color); /* Color de acento para la hamburguesa */
+            margin: 6px 0;
+            transition: 0.4s;
+        }
+
+        /* Hero Banner */
+        .hero-banner {
+            background: linear-gradient(rgba(26,26,46,0.8), rgba(26,26,46,0.8)), url('https://source.unsplash.com/random/1920x1080/?cryptocurrency,abstract,dark') no-repeat center center/cover; /* Fondo más oscuro */
+            color: var(--light-text-color);
+            text-align: center;
+            padding: 180px 0 120px; /* Mayor padding */
+            margin-top: 80px; /* Ajuste para el header fijo */
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-banner h2 {
+            color: var(--light-text-color);
+            font-size: 56px; /* Título más grande */
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .hero-banner p {
+            font-size: 24px; /* Subtítulo más grande */
+            max-width: 900px;
+            margin: 0 auto 30px; /* Espacio debajo del subtítulo */
+            color: var(--text-color);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+            background: var(--dark-bg);
+        }
+
+        section:nth-child(even) {
+            background: var(--mid-dark-bg); /* Alternar color de fondo para secciones */
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 44px;
+            margin-bottom: 50px;
+            color: var(--light-text-color);
+        }
+
+        .hidden-section {
+            display: none;
+        }
+
+        /* Articles Section */
+        .articles-section {
+            background: var(--mid-dark-bg);
+        }
+
+        .articles-section h3 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 40px;
+            color: var(--light-text-color);
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Artículos un poco más grandes */
+            gap: 40px;
+            align-items: flex-start; /* Asegura que los ítems de la cuadrícula no se estiren verticalmente */
+        }
+
+        .article-card {
+            background: var(--dark-bg);
+            border-radius: 12px; /* Más redondeado */
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4); /* Sombra más profunda */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-color);
+            display: flex; /* Añadido para control de alineación de botones */
+            flex-direction: column; /* Añadido para control de alineación de botones */
+        }
+
+        .article-card:hover {
+            transform: translateY(-8px); /* Mayor elevación al hover */
+            box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+        }
+
+        .article-card img {
+            width: 100%;
+            height: 220px; /* Altura de imagen ligeramente mayor */
+            object-fit: cover;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .article-card h4 {
+            padding: 25px 25px 15px;
+            font-size: 24px;
+            color: var(--light-text-color);
+        }
+
+        .article-card .article-content {
+            flex-grow: 1; /* Permite que este div ocupe todo el espacio disponible */
+            display: flex;
+            flex-direction: column;
+            padding: 0 25px; /* Padding lateral solo aquí */
+        }
+
+        .article-card .article-summary {
+            font-size: 17px;
+            color: var(--text-color);
+            /* Uso de -webkit-line-clamp para truncar texto a 3 líneas */
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            position: relative; /* Para el gradiente */
+            margin-bottom: 0; /* Sin margen inferior cuando colapsado */
+            padding-bottom: 15px; /* Espacio para el gradiente */
+            transition: -webkit-line-clamp 0.5s ease-out, padding-bottom 0.5s ease-out;
+        }
+
+        .article-card .article-summary.expanded {
+            -webkit-line-clamp: unset; /* Mostrar todo el texto al expandir */
+            overflow: visible;
+            text-overflow: unset;
+            transition: -webkit-line-clamp 0.5s ease-in, padding-bottom 0.5s ease-in;
+            padding-bottom: 25px; /* Más espacio cuando está expandido */
+        }
+
+        /* Gradiente para difuminar el texto al final del resumen cuando está colapsado */
+        .article-card .article-summary::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30px; /* Altura del gradiente */
+            background: linear-gradient(to top, var(--dark-bg) 0%, transparent 100%);
+            pointer-events: none; /* Permite interactuar con el contenido debajo */
+            opacity: 1;
+            transition: opacity 0.5s ease-out;
+        }
+
+        .article-card .article-summary.expanded::after {
+            opacity: 0; /* Ocultar gradiente cuando está expandido */
+            display: none; /* Asegurar que no ocupe espacio */
+        }
+
+        .article-card .article-full-content {
+            font-size: 17px;
+            color: var(--text-color);
+            display: none; /* Oculto por defecto */
+            flex-grow: 1; /* Ocupa espacio disponible */
+            margin-top: 10px; /* Espacio entre resumen y contenido completo */
+            padding-bottom: 15px; /* Espacio antes del botón */
+        }
+
+        .article-card .article-full-content.visible {
+            display: block;
+        }
+
+        .article-card .btn-toggle-content {
+            display: block;
+            width: calc(100% - 50px); /* Ajustado por el padding de 25px a cada lado del .article-content */
+            margin: auto 25px 25px 25px; /* 'margin-top: auto' empuja el botón hacia abajo */
+            text-align: center;
+            font-size: 16px;
+            background: var(--primary-color);
+            color: var(--dark-bg);
+            z-index: 10; /* Asegurar que el botón esté por encima del texto */
+            position: relative; /* Para que el z-index funcione */
+        }
+
+        .article-card .btn-toggle-content:hover {
+            background: var(--secondary-color);
+            color: var(--dark-bg);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-bg);
+            color: var(--text-color);
+            padding: 50px 0; /* Mayor padding */
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .footer-nav a,
+        .social-links a {
+            color: var(--text-color);
+            margin: 0 15px; /* Mayor espacio */
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-nav {
+            margin: 25px 0;
+        }
+
+        .social-links img {
+            filter: invert(1);
+            transition: transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .social-links a:hover img {
+            transform: scale(1.1);
+            filter: brightness(0) saturate(100%) invert(87%) sepia(35%) saturate(763%) hue-rotate(345deg) brightness(101%) contrast(100%); /* Cambia a color dorado */
+        }
+
+
+        /* About Section */
+        .about-section {
+            padding: 120px 0 80px; /* Ajuste por el header fijo */
+            background: var(--dark-bg);
+        }
+
+        .about-section h2 {
+            font-size: 48px;
+            margin-bottom: 40px;
+        }
+
+        .about-section p {
+            font-size: 19px;
+            margin-bottom: 25px;
+            line-height: 1.8;
+            color: var(--text-color);
+        }
+
+        .about-section .disclaimer {
+            background-color: var(--mid-dark-bg); /* Fondo más oscuro */
+            border-left: 5px solid var(--secondary-color);
+            padding: 20px;
+            margin: 40px 0;
+            border-radius: 8px;
+            color: var(--secondary-color); /* Texto dorado */
+            font-weight: 600;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .about-section h3 {
+            font-size: 34px;
+            margin-top: 50px;
+            color: var(--light-text-color);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 120px 0 80px; /* Ajuste por el header fijo */
+            background: var(--mid-dark-bg);
+        }
+
+        .contact-section h2 {
+            font-size: 48px;
+            margin-bottom: 40px;
+        }
+
+        .contact-section p {
+            text-align: center;
+            font-size: 19px;
+            margin-bottom: 35px;
+            color: var(--text-color);
+        }
+
+        .contact-form {
+            max-width: 650px;
+            margin: 0 auto 40px;
+            background: var(--dark-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            border: 1px solid var(--border-color);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--light-text-color);
+            font-size: 18px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 17px;
+            background: var(--mid-dark-bg);
+            color: var(--text-color);
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(4, 217, 178, 0.3);
+        }
+
+        .contact-form .btn {
+            width: 100%;
+            font-size: 18px;
+            padding: 15px;
+        }
+
+        .contact-note {
+            text-align: center;
+            font-style: italic;
+            color: var(--text-color);
+            font-size: 17px;
+        }
+
+        .social-links-contact {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .social-links-contact h4 {
+            color: var(--light-text-color);
+            margin-bottom: 25px;
+            font-size: 28px;
+        }
+
+        .social-links-contact a {
+            margin: 0 20px;
+        }
+
+        .social-links-contact img {
+            filter: brightness(0) saturate(100%) invert(87%) sepia(35%) saturate(763%) hue-rotate(345deg) brightness(101%) contrast(100%); /* Iconos dorados */
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .social-links-contact a:hover img {
+            transform: scale(1.2);
+            filter: brightness(0) saturate(100%) invert(67%) sepia(28%) saturate(1478%) hue-rotate(130deg) brightness(97%) contrast(92%); /* Verde al hover */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-banner h2 {
+                font-size: 48px;
+            }
+
+            .hero-banner p {
+                font-size: 20px;
+            }
+
+            .articles-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+
+            .article-card h4 {
+                font-size: 22px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header .container {
+                flex-wrap: wrap;
+                justify-content: space-between; /* Ajustar para que el logo y hamburguesa estén en extremos */
+            }
+
+            .logo {
+                width: auto;
+                margin-bottom: 0;
+            }
+
+            .nav {
+                width: auto;
+                order: 2; /* Mueve el botón de hamburguesa después del logo */
+            }
+
+            .nav-list {
+                display: none; /* Ocultar menú de navegación por defecto */
+                flex-direction: column;
+                width: 100%;
+                background: var(--dark-bg);
+                position: absolute;
+                top: 80px; /* Debajo del header */
+                left: 0;
+                padding: 20px 0;
+                border-top: 1px solid var(--border-color);
+                box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            }
+
+            .nav-list.active {
+                display: flex;
+            }
+
+            .nav-list li {
+                margin: 15px 0;
+                text-align: center;
+            }
+
+            .nav-list a {
+                font-size: 20px;
+            }
+
+            .hamburger-menu {
+                display: block;
+            }
+
+            .hero-banner {
+                padding: 150px 0 100px;
+                margin-top: 0; /* Ya no hay que compensar el header */
+            }
+
+            .hero-banner h2 {
+                font-size: 40px;
+            }
+
+            .hero-banner p {
+                font-size: 18px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            section h2,
+            .articles-section h3,
+            .about-section h2,
+            .contact-section h2 {
+                font-size: 36px;
+            }
+
+            .about-section,
+            .contact-section {
+                padding: 100px 0 60px;
+            }
+
+            .article-card .article-summary,
+            .article-card .article-full-content,
+            .about-section p,
+            .contact-section p,
+            .contact-note,
+            .form-group label,
+            .form-group input,
+            .form-group textarea,
+            .footer p,
+            .footer-nav a,
+            .social-links a {
+                font-size: 16px; /* Ajustar tamaño de fuente para móviles */
+            }
+
+            .social-links-contact h4 {
+                font-size: 24px;
+            }
+
+            .footer-nav a,
+            .social-links a {
+                margin: 5px 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-banner h2 {
+                font-size: 32px;
+            }
+
+            .hero-banner p {
+                font-size: 16px;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .article-card h4 {
+                font-size: 20px;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 15px;
+            }
+
+            section h2,
+            .articles-section h3,
+            .about-section h2,
+            .contact-section h2 {
+                font-size: 30px;
+            }
+
+            .contact-form {
+                padding: 25px;
+            }
+
+            .social-links-contact h4 {
+                font-size: 22px;
+            }
+        }
+
+        /* Animación de entrada de secciones */
+        section {
+            opacity: 0;
+            transform: translateY(30px); /* Mayor desplazamiento inicial */
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Animación más suave */
+        }
+
+        section.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+
+    <!-- Aquí se insertará el código de Google AdSense -->
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo"><a href="#hero-banner">CryptoConsejos</a></h1>
+            <nav class="nav">
+                <button class="hamburger-menu" aria-label="Abrir menú de navegación">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-list">
+                    <li><a href="#hero-banner" class="active">Inicio</a></li>
+                    <li><a href="#about-section">Sobre nosotros</a></li>
+                    <li><a href="#contact-section">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section id="hero-banner" class="hero-banner">
+            <div class="container">
+                <h2>Aprende a invertir en criptomonedas de forma inteligente</h2>
+                <p>Consejos prácticos, estrategias de inversión y educación financiera para principiantes.</p>
+                <!-- Botón opcional para CTA -->
+                <!-- <a href="#articles-section" class="btn">Explora Artículos</a> -->
+            </div>
+        </section>
+
+        <!-- Articles Section -->
+        <section id="articles-section" class="articles-section">
+            <div class="container">
+                <h3>Artículos Destacados</h3>
+                <div class="articles-grid">
+                    <!-- Artículo 1 -->
+                    <article class="article-card">
+                        <img src="./bitcoin.png" alt="Artículo sobre Bitcoin">
+                        <h4>Cómo empezar a invertir en Bitcoin sin cometer errores comunes</h4>
+                        <div class="article-content">
+                            <p class="article-summary">Descubre los pasos esenciales para iniciar tu viaje en el mundo de Bitcoin, evitando trampas comunes y maximizando tu potencial de crecimiento. Aprenderás a elegir un exchange, comprender la seguridad básica y evitar los errores más caros que cometen los novatos.</p>
+                            <p class="article-full-content">Invertir en Bitcoin puede ser emocionante, pero es crucial hacerlo bien. Primero, elige un exchange de confianza como Binance, Kraken o Coinbase. Asegúrate de que tenga buena reputación y medidas de seguridad robustas. Segundo, nunca inviertas más de lo que estás dispuesto a perder; la volatilidad es alta. Tercero, aprende sobre carteras (wallets) frías y calientes para proteger tus activos. Los errores comunes incluyen caer en estafas de 'pump and dump', no investigar antes de invertir, y dejar todos tus fondos en el exchange sin una cartera segura. La clave es la investigación constante y la paciencia.</p>
+                        </div>
+                        <button class="btn btn-toggle-content">Leer más</button>
+                    </article>
+
+                    <!-- Artículo 2 -->
+                    <article class="article-card">
+                        <img src="./diversificacion.png" alt="Artículo sobre Diversificación">
+                        <h4>Qué es la diversificación y por qué puede salvar tus inversiones</h4>
+                        <div class="article-content">
+                            <p class="article-summary">Aprende cómo la diversificación reduce riesgos y protege tu cartera de criptomonedas, una estrategia clave para cualquier inversor inteligente. La diversificación no se trata solo de tener varias criptomonedas, sino de equilibrar diferentes tipos de activos y sectores.</p>
+                            <p class="article-full-content">La diversificación es la estrategia de distribuir tus inversiones entre una variedad de activos para minimizar el riesgo. En el mundo cripto, esto significa no poner todo tu capital en una sola moneda. Considera invertir en diferentes categorías: blue-chip (Bitcoin, Ethereum), DeFi (Aave, Uniswap), NFTs (Flow, Decentraland) y proyectos emergentes. Además, diversificar no es solo cripto; puedes mantener un equilibrio con inversiones tradicionales como acciones o bienes raíces. El objetivo es que si un activo tiene un mal rendimiento, otros puedan compensarlo, protegiendo así tu inversión total.</p>
+                        </div>
+                        <button class="btn btn-toggle-content">Leer más</button>
+                    </article>
+
+                    <!-- Artículo 3 -->
+                    <article class="article-card">
+                        <img src="./potencial.png" alt="Artículo sobre criptomonedas con potencial">
+                        <h4>Las 5 criptomonedas con más potencial en 2025</h4>
+                        <div class="article-content">
+                            <p class="article-summary">Explora las principales criptomonedas que podrían dominar el mercado en 2025 y por qué son una excelente adición a tu estrategia de inversión. Este análisis se basa en la tecnología, la adopción y el desarrollo de la comunidad.</p>
+                            <p class="article-full-content">El mercado cripto está en constante evolución, pero algunas monedas muestran un potencial excepcional para 2025. Además de Bitcoin y Ethereum, que son la base, proyectos como Solana (SOL) por su escalabilidad, Polkadot (DOT) por su interoperabilidad, y Cardano (ADA) por su enfoque científico, son muy prometedores. También, BNB (Binance Coin) sigue siendo fuerte debido a su ecosistema. Siempre es vital investigar a fondo cada proyecto, su caso de uso real y el equipo detrás de él. El futuro es descentralizado, y estas monedas están liderando el camino.</p>
+                        </div>
+                        <button class="btn btn-toggle-content">Leer más</button>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about-section" class="about-section hidden-section">
+            <div class="container">
+                <h2>Sobre CryptoConsejos</h2>
+                <p>En CryptoConsejos, nuestra misión es desmitificar el mundo de las criptomonedas y las inversiones personales, ofreciendo información clara, concisa y accesible para todos. Creemos firmemente que la educación financiera es la clave para tomar decisiones informadas y seguras en un mercado tan dinámico como el de los activos digitales.</p>
+                <p class="disclaimer"><strong>Descargo de responsabilidad:</strong> El contenido de este sitio web es solo para fines educativos e informativos. No constituye asesoramiento financiero, de inversión, legal o fiscal. Siempre recomendamos consultar con un profesional cualificado antes de tomar cualquier decisión de inversión.</p>
+                <h3>Nuestra Historia y Misión</h3>
+                <p>El proyecto CryptoConsejos nació de la necesidad de un recurso confiable y fácil de entender en el espacio de las criptomonedas. Con la creciente popularidad de Bitcoin, Ethereum y otras monedas digitales, notamos una brecha en la información disponible para principiantes. Nuestro equipo de entusiastas y expertos en finanzas se unió para crear una plataforma donde cualquiera pueda aprender los fundamentos de la inversión en criptomonedas, entender las estrategias de riesgo y construir una base sólida para sus finanzas personales.</p>
+                <p>Nuestra misión es empoderar a nuestros usuarios con el conocimiento necesario para navegar el mercado de las criptomonedas con confianza, fomentando prácticas de inversión responsables y a largo plazo.</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact-section" class="contact-section hidden-section">
+            <div class="container">
+                <h2>Contáctanos</h2>
+                <p>¿Tienes alguna pregunta, sugerencia o quieres colaborar? Envíanos un mensaje y nos pondremos en contacto contigo pronto.</p>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Nombre:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo electrónico:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensaje:</label>
+                        <textarea id="message" name="message" rows="6" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Enviar Mensaje</button>
+                </form>
+                <p class="contact-note">Nos pondremos en contacto contigo pronto.</p>
+
+                <div class="social-links-contact">
+                    <h4>Síguenos en redes sociales</h4>
+                    <a href="#" aria-label="Twitter"><img src="https://img.icons8.com/ios-filled/30/FFD700/twitterx--v1.png" alt="Twitter"></a>
+                    <a href="#" aria-label="LinkedIn"><img src="https://img.icons8.com/ios-filled/30/FFD700/linkedin.png" alt="LinkedIn"></a>
+                    <a href="#" aria-label="YouTube"><img src="https://img.icons8.com/ios-filled/30/FFD700/youtube--v1.png" alt="YouTube"></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 CryptoConsejos. Todos los derechos reservados.</p>
+            <nav class="footer-nav">
+                <a href="#">Aviso Legal</a>
+                <a href="#">Política de Privacidad</a>
+            </nav>
+            <div class="social-links">
+                <a href="#" aria-label="Twitter"><img src="https://img.icons8.com/ios-filled/24/FFD700/twitterx--v1.png" alt="Twitter"></a>
+                <a href="#" aria-label="LinkedIn"><img src="https://img.icons8.com/ios-filled/24/FFD700/linkedin.png" alt="LinkedIn"></a>
+                <a href="#" aria-label="YouTube"><img src="https://img.icons8.com/ios-filled/24/FFD700/youtube--v1.png" alt="YouTube"></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // js/main.js - Funcionalidades mejoradas y unificadas
+        document.addEventListener('DOMContentLoaded', () => {
+            // Manejo del menú hamburguesa
+            const hamburger = document.querySelector('.hamburger-menu');
+            const navList = document.querySelector('.nav-list');
+
+            if (hamburger && navList) {
+                hamburger.addEventListener('click', () => {
+                    navList.classList.toggle('active');
+                    // Alternar el icono de hamburguesa (opcional)
+                    hamburger.classList.toggle('open');
+                });
+            }
+
+            // Manejo de la navegación entre secciones (SPA-like)
+            const navLinks = document.querySelectorAll('.nav-list a');
+            const sections = document.querySelectorAll('main section'); // Todas las secciones en main
+
+            // Función para activar una sección y desactivar las demás
+            const activateSection = (targetId) => {
+                sections.forEach(section => {
+                    const isHomeContentSection = (section.id === 'hero-banner' || section.id === 'articles-section');
+
+                    if (targetId === '#hero-banner' && isHomeContentSection) {
+                        // Si se activa 'Inicio', mostrar tanto el hero-banner como la sección de artículos
+                        section.classList.remove('hidden-section');
+                        section.classList.add('fade-in');
+                    } else if ('#' + section.id === targetId) {
+                        // Si se activa cualquier otra sección específica (About, Contact), mostrar solo esa
+                        section.classList.remove('hidden-section');
+                        section.classList.add('fade-in');
+                    } else {
+                        // Ocultar todas las demás secciones
+                        section.classList.add('hidden-section');
+                        section.classList.remove('fade-in');
+                    }
+                });
+
+                // Actualizar clase 'active' en la navegación
+                navLinks.forEach(link => {
+                    const linkTargetId = link.getAttribute('href');
+                    if (linkTargetId === targetId) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+
+                // Ocultar menú hamburguesa si está abierto en móvil
+                if (navList.classList.contains('active')) {
+                    navList.classList.remove('active');
+                    if (hamburger) hamburger.classList.remove('open');
+                }
+            };
+
+            // Event listeners para los enlaces de navegación
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    activateSection(targetId);
+
+                    // Smooth scroll al principio de la sección si es la principal o articles
+                    if (targetId === '#hero-banner' || targetId === '#articles-section') {
+                        document.querySelector(targetId).scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    } else {
+                        // Para about y contact, solo asegúrate de que se muestre y el scroll sea al inicio de la ventana.
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Activar la sección inicial al cargar la página (por defecto, el hero-banner o la primera sección)
+            const initialSectionId = window.location.hash || '#hero-banner';
+            activateSection(initialSectionId);
+
+
+            // Funcionalidad "Leer más / Leer menos" para artículos
+            const toggleButtons = document.querySelectorAll('.btn-toggle-content');
+
+            toggleButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    // Acceder al article-card padre del botón clicado
+                    const articleCard = this.closest('.article-card'); 
+                    if (!articleCard) return; // Salir si no encuentra el padre
+
+                    const articleSummary = articleCard.querySelector('.article-summary');
+                    const articleFullContent = articleCard.querySelector('.article-full-content');
+
+                    if (articleFullContent && articleSummary) {
+                        if (articleFullContent.classList.contains('visible')) {
+                            // Si está expandido, contraer
+                            articleFullContent.classList.remove('visible');
+                            articleSummary.classList.remove('expanded');
+                            this.textContent = 'Leer más';
+                        } else {
+                            // Si está contraído, expandir
+                            articleFullContent.classList.add('visible');
+                            articleSummary.classList.add('expanded');
+                            this.textContent = 'Leer menos';
+                        }
+                    }
+                });
+            });
+            
+            // Animación de entrada de secciones (fade-in) al hacer scroll
+            // Esta funcionalidad es global y se aplica a todas las secciones.
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Solo añadir 'fade-in' si la sección no está ya visible por la navegación
+                        if (!entry.target.classList.contains('hidden-section')) {
+                             entry.target.classList.add('fade-in');
+                        }
+                    } else {
+                        // Opcional: remover la clase si sale de la vista para re-animar al volver a entrar
+                        // entry.target.classList.remove('fade-in'); 
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
