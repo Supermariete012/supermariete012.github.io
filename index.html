@@ -908,8 +908,14 @@
             // Event listeners para los enlaces de navegación
             navLinks.forEach(link => {
                 link.addEventListener('click', function (e) {
-                    e.preventDefault();
                     const targetId = this.getAttribute('href');
+
+                    // Check if the link is an internal anchor. If not, let the browser handle it.
+                    if (!targetId.startsWith('#')) {
+                        return; 
+                    }
+
+                    e.preventDefault();
                     activateSection(targetId);
 
                     // Smooth scroll al principio de la sección si es la principal o articles
